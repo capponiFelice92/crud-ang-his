@@ -34,8 +34,6 @@ export class AppComponent implements Automabile {
 
   nuova() {
     this.automa.next(new AddEvent, this.automa);
-    //  this.codice = false;
-    //this.descrizione = false;
   }
   rimuovi() {
     this.automa.next(new RimuoviEvent, this.automa);
