@@ -3,8 +3,10 @@ import { AddEvent, AnnullaEvent, ConfermaEvent, Event, ModificaEvent, RicercaEve
 
 export class Automa implements State {
     next(e: Event, a?: Automa) {
-        console.log("siamo nello stato " + this.stato);
-        console.log("ricevuto evento " + e);
+        console.log("siamo nello stato:");
+        console.log(this.stato);
+        console.log("ricevuto evento:");
+        console.log(e);
         this.stato.next(e, a);
         console.log("siamo arrivati nello stato " + this.stato + "\n");
     }
@@ -25,7 +27,6 @@ export class Automa implements State {
 export class Ricerca implements State {
     next(e: Event, a?: Automa) {
         if (e instanceof AddEvent) {
-            console.log(e);
             a.stato = new Aggiungi(a);
         } else if (e instanceof RicercaEvent) {
 
@@ -97,14 +98,14 @@ export class Rimuovi implements State {
 
 export class Modifica implements State {
     next(e: Event, a?: Automa) {
-        if(e instanceof ConfermaEvent){
+        if (e instanceof ConfermaEvent) {
             a.stato = new Visualizza();
             a.ui.entraStatoVisualizza();
 
-        }else if(e instanceof AnnullaEvent){
+        } else if (e instanceof AnnullaEvent) {
             a.stato = new Visualizza();
             a.ui.entraStatoVisualizza();
-        }else{
+        } else {
             console.log("errore ricevuto evento " + e + " inatteso");
         }
     }
