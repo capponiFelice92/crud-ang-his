@@ -5,7 +5,7 @@ export class Automa implements State {
     next(e: Event, a?: Automa) {
         console.log("siamo nello stato " + this.stato);
         console.log("ricevuto evento " + e);
-        this.stato.next(e);
+        this.stato.next(e, a);
         console.log("siamo arrivati nello stato " + this.stato + "\n");
     }
 
@@ -25,6 +25,7 @@ export class Automa implements State {
 export class Ricerca implements State {
     next(e: Event, a?: Automa) {
         if (e instanceof AddEvent) {
+            console.log(e);
             a.stato = new Aggiungi(a);
         } else if (e instanceof RicercaEvent) {
 

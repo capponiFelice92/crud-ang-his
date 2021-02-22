@@ -20,7 +20,7 @@ export class AppComponent implements Automabile {
   constructor() { this.automa = new Automa(this) };
 
   nuova() {
-    this.automa.next(new AddEvent);
+    this.automa.next(new AddEvent, this.automa);
   }
   rimuovi() {
     this.automa.next(new RimuoviEvent);
