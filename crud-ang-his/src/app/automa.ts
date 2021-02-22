@@ -8,12 +8,15 @@ export class Automa implements State {
         console.log("ricevuto evento:");
         console.log(e);
         this.stato.next(e, a);
-        console.log("siamo arrivati nello stato " + this.stato + "\n");
+        console.log("siamo arrivati nello stato:");
+        console.log(this.stato);
     }
 
     constructor(ui: Automabile) {
         this.ui = ui;
         this.stato = new Ricerca();
+        console.log("Siamo nello stato: ");
+        console.log(this.stato);
         ui.entraStatoRicerca();
     }
 

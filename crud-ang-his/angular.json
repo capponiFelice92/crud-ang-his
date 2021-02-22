@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "crud-ang-his"
+  "defaultProject": "crud-ang-his",
+  "cli": {
+    "analytics": false
+  }
 }

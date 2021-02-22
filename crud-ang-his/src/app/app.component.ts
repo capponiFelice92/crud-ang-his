@@ -28,7 +28,9 @@ export class AppComponent implements Automabile {
   descrizione: boolean;
 
 
-  constructor() { this.automa = new Automa(this) };
+  constructor() { 
+    this.automa = new Automa(this);
+   }
 
   nuova() {
     this.automa.next(new AddEvent, this.automa);
