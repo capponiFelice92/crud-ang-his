@@ -3,13 +3,10 @@ import { AddEvent, AnnullaEvent, ConfermaEvent, Event, ModificaEvent, RicercaEve
 
 export class Automa implements State {
     next(e: Event, a?: Automa) {
-        console.log("siamo nello stato:");
-        console.log(this.stato);
-        console.log("ricevuto evento:");
-        console.log(e);
+        console.log("siamo nello stato:", this.stato);
+        console.log("ricevuto evento:", e);
         this.stato.next(e, a);
-        console.log("siamo arrivati nello stato:");
-        console.log(this.stato);
+        console.log("siamo arrivati nello stato: ", this.stato);
     }
 
     constructor(ui: Automabile) {
